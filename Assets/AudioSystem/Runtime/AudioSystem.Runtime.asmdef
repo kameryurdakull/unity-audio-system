@@ -1,0 +1,6 @@
+{
+  "name": "AudioSystem.Runtime",
+  "rootNamespace": "AudioSystem",
+  "references": ["UniTask", "VContainer", "EventSystem"],
+  "autoReferenced": true
+}

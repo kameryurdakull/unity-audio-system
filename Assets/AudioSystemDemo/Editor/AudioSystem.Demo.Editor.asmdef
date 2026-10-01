@@ -1,0 +1,14 @@
+{
+  "name": "AudioSystem.Demo.Editor",
+  "rootNamespace": "AudioSystem.Demo.Editor",
+  "references": [
+    "AudioSystem.Runtime",
+    "AudioSystem.Demo",
+    "VContainer",
+    "AudioSystem.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true
+}

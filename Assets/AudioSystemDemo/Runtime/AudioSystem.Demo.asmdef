@@ -1,0 +1,12 @@
+{
+  "name": "AudioSystem.Demo",
+  "rootNamespace": "AudioSystem.Demo",
+  "references": [
+    "AudioSystem.Runtime",
+    "UniTask",
+    "VContainer",
+    "EventSystem",
+    "AudioSystem.Generated"
+  ],
+  "autoReferenced": true
+}

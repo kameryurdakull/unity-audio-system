@@ -1,0 +1,5 @@
+{
+  "name": "AudioSystem.Generated",
+  "references": ["AudioSystem.Runtime", "UniTask", "EventSystem"],
+  "autoReferenced": true
+}

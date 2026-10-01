@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91415fa457583974c94507c3ef2b675b, type: 3}
+  m_Name: DemoMusicA
+  m_EditorClassIdentifier: AudioSystem.Runtime::AudioSystem.SoundDefinition
+  clips:
+  - {fileID: 8300000, guid: 566202b18f6934f449d62b09f466838f, type: 3}
+  bus: {fileID: 11400000, guid: 0b27e28d3635336489afd79eafec653f, type: 2}
+  volume: 0.35
+  pitchRange: {x: 1, y: 1}
+  loop: 1
+  priority: 128
+  maxInstances: 1
+  cooldownSeconds: 0
+  instanceOverflow: 0
+  spatialMode: 0
+  minDistance: 1
+  maxDistance: 50
+  rolloff: 0
+  dopplerLevel: 0
+  targetLostPolicy: 0

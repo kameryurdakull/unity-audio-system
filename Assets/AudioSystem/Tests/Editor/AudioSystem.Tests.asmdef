@@ -1,0 +1,23 @@
+{
+  "name": "AudioSystem.Tests",
+  "rootNamespace": "AudioSystem.Tests",
+  "references": [
+    "AudioSystem.Runtime",
+    "UniTask",
+    "EventSystem",
+    "VContainer",
+    "AudioSystem.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "nunit.framework.dll",
+    "DOTween.dll"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false
+}
