@@ -44,6 +44,11 @@
 
 # Visual Studio cache directory
 .vs/
+.idea/
+
+# Imported UPM samples are regenerated from Packages/**/Samples~.
+/Assets/Samples/
+/Assets/Samples.meta
 
 # Gradle cache directory
 .gradle/

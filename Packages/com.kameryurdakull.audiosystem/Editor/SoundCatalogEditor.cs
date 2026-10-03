@@ -13,6 +13,7 @@ namespace AudioSystem.Editor
         private const string EntriesField = "entries";
         private const string NamespaceField = "generatedNamespace";
         private const string EnumField = "enumName";
+        private const string GeneratedFolderField = "generatedFolder";
         private const string NewId = "NewSound";
         private const string GenerateLabel = "Generate Sound IDs";
         private const string ImportLabel = "Import Selected Clips / SoundDefinitions";
@@ -57,6 +58,7 @@ namespace AudioSystem.Editor
             {
                 EditorGUILayout.PropertyField(serializedObject.FindProperty(NamespaceField));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty(EnumField));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty(GeneratedFolderField));
                 _list.DoLayoutList();
                 serializedObject.ApplyModifiedProperties();
                 if (!SoundIdGenerator.IsCurrent(Catalog))

@@ -160,5 +160,22 @@ namespace AudioSystem.Tests
             Assert.That(SoundIdGenerator.BuildSource(_catalog), Does.Contain(NewSoundId + " = " + number));
         }
 
+        [TestCase("Assets/AudioSystemGenerated", "Assets/AudioSystemGenerated")]
+        [TestCase("../Generated", "Assets/Samples/PlaybackLab/Generated")]
+        public void GeneratedFolderSupportsProjectAndRelocatedSamplePaths(string configured, string expected)
+        {
+            Assert.That(SoundIdGenerator.ResolveOutputFolder(configured,
+                "Assets/Samples/PlaybackLab/Data/SoundCatalog.asset"), Is.EqualTo(expected));
+        }
+
+        [TestCase("../../../../OutsideProject")]
+        [TestCase("Assets/../../OutsideProject")]
+        [TestCase("Packages/Unsafe")]
+        [TestCase("")]
+        public void GeneratedCodeCannotEscapeAssets(string configured)
+        {
+            Assert.Throws<ArgumentException>(() => SoundIdGenerator.ResolveOutputFolder(configured, "Assets/SoundCatalog.asset"));
+        }
+
     }
 }

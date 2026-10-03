@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46615a7dc67648a5909728d76e73924f, type: 3}
+  m_Name: SoundCatalog
+  m_EditorClassIdentifier: AudioSystem.Runtime::AudioSystem.SoundCatalog
+  identity: cd125e8b97c145e384d2d5326d14291e
+  nextStableId: 5
+  entries:
+  - stableId: 1
+    id: UiClick
+    data:
+      clips:
+      - {fileID: 8300000, guid: 3e5705dc3539487ba1882565745e1fa6, type: 3}
+      bus: {fileID: 11400000, guid: d5d9d1466a3a4c1597ee177b5de50d69, type: 2}
+      volume: 0.65
+      pitchRange: {x: 1, y: 1}
+      loop: 0
+      priority: 128
+      maxInstances: 32
+      cooldownSeconds: 0
+      instanceOverflow: 0
+      spatialMode: 0
+      minDistance: 1
+      maxDistance: 50
+      rolloff: 0
+      dopplerLevel: 0
+      targetLostPolicy: 0
+  - stableId: 2
+    id: EngineLoop
+    data:
+      clips:
+      - {fileID: 8300000, guid: 7e2c4382c4be4f308e28dc642ca12a43, type: 3}
+      bus: {fileID: 11400000, guid: d5d9d1466a3a4c1597ee177b5de50d69, type: 2}
+      volume: 0.35
+      pitchRange: {x: 1, y: 1}
+      loop: 1
+      priority: 128
+      maxInstances: 1
+      cooldownSeconds: 0
+      instanceOverflow: 0
+      spatialMode: 1
+      minDistance: 1
+      maxDistance: 50
+      rolloff: 0
+      dopplerLevel: 0
+      targetLostPolicy: 0
+  - stableId: 3
+    id: MenuMusic
+    data:
+      clips:
+      - {fileID: 8300000, guid: 03b8876c32af4f8e9381229a679c1129, type: 3}
+      bus: {fileID: 11400000, guid: 3d1e1f61314f4669b4c411745b4f06fb, type: 2}
+      volume: 0.35
+      pitchRange: {x: 1, y: 1}
+      loop: 1
+      priority: 128
+      maxInstances: 1
+      cooldownSeconds: 0
+      instanceOverflow: 0
+      spatialMode: 0
+      minDistance: 1
+      maxDistance: 50
+      rolloff: 0
+      dopplerLevel: 0
+      targetLostPolicy: 0
+  - stableId: 4
+    id: GameplayMusic
+    data:
+      clips:
+      - {fileID: 8300000, guid: ffd919290d6b4eceb41b793521e2364c, type: 3}
+      bus: {fileID: 11400000, guid: 3d1e1f61314f4669b4c411745b4f06fb, type: 2}
+      volume: 0.35
+      pitchRange: {x: 1, y: 1}
+      loop: 1
+      priority: 128
+      maxInstances: 1
+      cooldownSeconds: 0
+      instanceOverflow: 0
+      spatialMode: 0
+      minDistance: 1
+      maxDistance: 50
+      rolloff: 0
+      dopplerLevel: 0
+      targetLostPolicy: 0
+  generatedNamespace: AudioSystem.PlaybackLab.Audio
+  enumName: PlaybackSoundId
+  generatedFolder: ../Generated

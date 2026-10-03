@@ -13,7 +13,7 @@ namespace AudioSystem.Editor
         internal const string GeneratedFolder = "Assets/AudioSystemGenerated";
         private const string AssemblyFile = "AudioSystem.Generated.asmdef";
         private const string OwnerPrefix = "// AudioSystem generated catalog: ";
-        private const string AssemblySource = "{\n  \"name\": \"AudioSystem.Generated\",\n  \"references\": [\"AudioSystem.Runtime\", \"UniTask\", \"EventSystem\"],\n  \"autoReferenced\": true\n}\n";
+        private const string DefaultAssemblyName = "AudioSystem.Generated";
         private static readonly HashSet<string> Keywords = new(StringComparer.Ordinal)
         {
             "abstract", "as", "base", "bool", "break", "byte", "case", "catch", "char", "checked", "class",
@@ -44,23 +44,53 @@ namespace AudioSystem.Editor
             var owner = OwnerPrefix + identity.ToString("N");
             if (File.Exists(path) && !ReadNormalized(path).StartsWith(owner + "\n", StringComparison.Ordinal))
                 throw new InvalidOperationException($"{path} belongs to another catalog or contains handwritten code. Choose a different enum name.");
-            var assemblyPath = GeneratedFolder + "/" + AssemblyFile;
-            if (File.Exists(assemblyPath) && ReadNormalized(assemblyPath) != AssemblySource)
+            var folder = GetOutputFolder(catalog);
+            var assemblyPath = folder + "/" + AssemblyFile;
+            var assemblySource = BuildAssemblySource(catalog);
+            if (File.Exists(assemblyPath) && ReadNormalized(assemblyPath) != assemblySource)
                 throw new InvalidOperationException($"{assemblyPath} has custom content. Restore the generated assembly before generating IDs.");
 
             Undo.RecordObject(catalog, "Generate Sound IDs");
             catalog.BindIdentity(identity);
             EditorUtility.SetDirty(catalog);
             var source = BuildSource(catalog);
-            Directory.CreateDirectory(GeneratedFolder);
-            WriteIfChanged(assemblyPath, AssemblySource);
+            Directory.CreateDirectory(folder);
+            WriteIfChanged(assemblyPath, assemblySource);
             WriteIfChanged(path, source);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             return path;
         }
 
-        internal static string GetOutputPath(SoundCatalog catalog) => GeneratedFolder + "/" + catalog.EnumName + ".cs";
+        internal static string GetOutputPath(SoundCatalog catalog) => GetOutputFolder(catalog) + "/" + catalog.EnumName + ".cs";
+
+        internal static string GetOutputFolder(SoundCatalog catalog) =>
+            ResolveOutputFolder(catalog.GeneratedFolder, AssetDatabase.GetAssetPath(catalog));
+
+        internal static string ResolveOutputFolder(string folder, string catalogPath)
+        {
+            if (string.IsNullOrWhiteSpace(folder) || Path.IsPathRooted(folder))
+                throw new ArgumentException("The generated folder must be inside Assets.");
+            var normalized = folder.Replace('\\', '/');
+            if (normalized.StartsWith("Packages/", StringComparison.Ordinal))
+                throw new ArgumentException("Generated files belong to Assets, not to installed packages.");
+            var projectRoot = Path.GetDirectoryName(Application.dataPath);
+            var relative = normalized.StartsWith("Assets/", StringComparison.Ordinal)
+                ? normalized : !string.IsNullOrEmpty(catalogPath)
+                    ? Path.Combine(Path.GetDirectoryName(catalogPath), normalized)
+                    : throw new ArgumentException("Save the catalog before choosing a relative output folder.");
+            var full = Path.GetFullPath(Path.Combine(projectRoot, relative));
+            var assetsPrefix = Path.GetFullPath(Application.dataPath) + Path.DirectorySeparatorChar;
+            if (!full.StartsWith(assetsPrefix, StringComparison.OrdinalIgnoreCase))
+                throw new ArgumentException("Generated code can only be written to a subfolder of Assets.");
+            return "Assets/" + full.Substring(assetsPrefix.Length).Replace('\\', '/');
+        }
+
+        internal static string GetAssemblyName(SoundCatalog catalog) => GetOutputFolder(catalog) == GeneratedFolder
+            ? DefaultAssemblyName : DefaultAssemblyName + "." + catalog.GeneratedNamespace + "." + catalog.EnumName;
+
+        internal static string BuildAssemblySource(SoundCatalog catalog) =>
+            "{\n  \"name\": \"" + GetAssemblyName(catalog) + "\",\n  \"references\": [\"AudioSystem.Runtime\", \"UniTask\", \"EventSystem\"],\n  \"autoReferenced\": true\n}\n";
 
         internal static bool IsCurrent(SoundCatalog catalog)
         {

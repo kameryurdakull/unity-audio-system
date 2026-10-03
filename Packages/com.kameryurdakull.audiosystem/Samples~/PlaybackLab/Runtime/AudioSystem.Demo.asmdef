@@ -1,0 +1,12 @@
+{
+  "name": "AudioSystem.PlaybackLab",
+  "rootNamespace": "AudioSystem.PlaybackLab",
+  "references": [
+    "AudioSystem.Runtime",
+    "UniTask",
+    "VContainer",
+    "EventSystem",
+    "AudioSystem.Generated.AudioSystem.PlaybackLab.Audio.PlaybackSoundId"
+  ],
+  "autoReferenced": true
+}

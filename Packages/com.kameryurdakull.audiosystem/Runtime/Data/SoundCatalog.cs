@@ -32,11 +32,14 @@ namespace AudioSystem
         [SerializeField] private List<SoundCatalogEntry> entries = new();
         [SerializeField] private string generatedNamespace = "Game.Audio";
         [SerializeField] private string enumName = "SoundId";
+        [SerializeField, Tooltip("An Assets path, or a path relative to this catalog's folder.")]
+        private string generatedFolder = "Assets/AudioSystemGenerated";
 
         public Guid Identity => Guid.TryParse(identity, out var value) ? value : Guid.Empty;
         public IReadOnlyList<SoundCatalogEntry> Entries => entries;
         public string GeneratedNamespace => generatedNamespace;
         public string EnumName => enumName;
+        public string GeneratedFolder => generatedFolder;
 
         internal SoundCatalogEntry Add(string id, SoundData data)
         {

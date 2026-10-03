@@ -1,0 +1,14 @@
+{
+  "name": "AudioSystem.PlaybackLab.Editor",
+  "rootNamespace": "AudioSystem.PlaybackLab.Editor",
+  "references": [
+    "AudioSystem.Runtime",
+    "AudioSystem.PlaybackLab",
+    "VContainer",
+    "AudioSystem.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true
+}

@@ -1,0 +1,36 @@
+{
+  "name": "com.kameryurdakull.audiosystem",
+  "version": "1.0.0",
+  "displayName": "Audio System",
+  "description": "Tek katalog, üretilen enum ID’leri, 2D/3D ses havuzu ve iptal edilebilir müzik geçişleri. UniTask, VContainer, Event Bus ve DOTween gerektirir.",
+  "unity": "2022.3",
+  "author": {
+    "name": "Kamer Yurdakull",
+    "url": "https://github.com/kameryurdakull"
+  },
+  "documentationUrl": "https://github.com/kameryurdakull/unity-audio-system/blob/main/README.md",
+  "changelogUrl": "https://github.com/kameryurdakull/unity-audio-system/blob/main/Packages/com.kameryurdakull.audiosystem/CHANGELOG.md",
+  "keywords": [
+    "audio",
+    "sound",
+    "3d",
+    "vcontainer",
+    "unitask",
+    "eventbus"
+  ],
+  "dependencies": {
+    "com.cysharp.unitask": "2.5.11",
+    "jp.hadashikick.vcontainer": "1.19.0",
+    "com.kameryurdakull.eventbus": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0"
+  },
+  "samples": [
+    {
+      "displayName": "Playback Lab",
+      "description": "Enum ID, EventBus, 3D takip, ses havuzu ve müzik geçişlerini deneyebileceğiniz bağımsız örnek sahne.",
+      "path": "Samples~/PlaybackLab"
+    }
+  ]
+}

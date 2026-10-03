@@ -24,6 +24,19 @@
       "dependencies": {},
       "hash": "2e993ff18f28c931602a07292df0b0804eebef99"
     },
+    "com.kameryurdakull.audiosystem": {
+      "version": "file:com.kameryurdakull.audiosystem",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.cysharp.unitask": "2.5.11",
+        "jp.hadashikick.vcontainer": "1.19.0",
+        "com.kameryurdakull.eventbus": "1.0.0",
+        "com.unity.modules.audio": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.imgui": "1.0.0"
+      }
+    },
     "com.kameryurdakull.eventbus": {
       "version": "https://github.com/kameryurdakull/unity-eventbus.git?path=/Packages/com.kameryurdakull.eventbus#v1.0.0",
       "depth": 0,
